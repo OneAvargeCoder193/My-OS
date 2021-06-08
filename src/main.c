@@ -11,13 +11,11 @@
 #include "music.h"
 #include "sound.h"
 #include "math.h"
-#include "filesystem.h"
 
 #define FPS 60
 
-#define NUM_KEYS 26
-
-void _main(u32 magic) {
+void _main(u32 magic)
+{
     idt_init();
     isr_init();
     fpu_init();
@@ -30,18 +28,15 @@ void _main(u32 magic) {
 
     u32 last_frame = 0, last = 0;
 
-    struct dir *user;
-    user->name = "User";
-
-    while (true) {
+    while (true)
+    {
         screen_clear(COLOR(0, 0, 0));
-        const u32 now = (u32) timer_get();
+        const u32 now = (u32)timer_get();
 
-        if (now != last) {
+        if (now != last)
+        {
             last = now;
         }
-
-        
 
         screen_swap();
     }
